@@ -67,6 +67,13 @@ You can also add an alias to the list of class aliases in the same app.php
     
 ```
 
+### Get remain time
+```php
+
+    Arabicdatetime::remainnigTime(1418123530);
+
+```
+
 
 ## License
 
