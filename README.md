@@ -42,6 +42,31 @@ You can also add an alias to the list of class aliases in the same app.php
 	...
 ```
 
+## Useage
+
+### Get all arabic monthes
+
+```php
+    Arabicdatetime::getArabicMonthes();
+```
+
+### Get all arabic days
+
+```php
+    Arabicdatetime::getArabicDays();
+```
+
+### Get date from unixtime
+
+```php
+    //for english date
+    Arabicdatetime::date(1418123530); // or Arabicdatetime::date(1418123530 , 0);
+    
+    //for arabic date
+    Arabicdatetime::date(1418123530 , 1);
+    
+```
+
 
 ## License
 
