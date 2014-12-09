@@ -1,6 +1,10 @@
 {
     "name": "maherelgamil/arabicdatetime",
     "description": "Easy and useful tool to get arabic date with arabic characters for laravel 4",
+    "keywords": ["arabic", "date", " time", "laravel", "php"],
+    "homepage": "https://github.com/maherelgamil/arabicdatetime",
+    "license": "MIT",
+    "version": "0.0.1",
     "authors": [
         {
             "name": "maherelgamil",
