@@ -94,10 +94,10 @@ class Arabicdatetime
     protected function getArabicDate($unixtime , $numericMode = null)
     {
         //1get month
-        $month =  $this->months[date("M", $unixtime )] ;
+        $monthName =  $this->months[date("M", $unixtime )] ;
 
         //get day
-        $day = $this->days[date('D' , $unixtime)];
+        $dayName = $this->days[date('D' , $unixtime)];
 
         //get time
         $time = date('H:i' , $unixtime );
@@ -108,7 +108,7 @@ class Arabicdatetime
         $fullTime = $this->hourArabicTitle . " ($time)" . ' ' . $period ;
 
         //get full date
-        $current_date = $fullTime . ' - ' . $day . ' ' . date('d') . ' / ' . $month . ' / ' .date('Y');
+        $current_date = $fullTime . ' - ' . $dayName . ' ' . date('d', $unixtime) . ' / ' . $monthName . ' / ' .date('Y', $unixtime);
 
 
         $date = $numericMode == 'indian' ? str_replace($this->arabicNum , $this->indianNum , $current_date) : $current_date ;
