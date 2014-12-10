@@ -68,6 +68,9 @@ You can also add an alias to the list of class aliases in the same app.php
     //for arabic date with indian numbers
     Arabicdatetime::date(1418123530 , 1 , 'indian');
     
+    //for hijri date in arabic with indian numbers
+    Arabicdatetime::date(1418123530 , 2 , 'indian');
+    
 ```
 
 ### Get remainnig time
