@@ -65,13 +65,15 @@ You can also add an alias to the list of class aliases in the same app.php
     //for arabic date
     Arabicdatetime::date(1418123530 , 1);
     
+    //for arabic date with indian numbers
+    Arabicdatetime::date(1418123530 , 1 , 'indian');
+    
 ```
 
-### Get remain time
+### Get remainnig time
+
 ```php
-
     Arabicdatetime::remainnigTime(1418123530);
-
 ```
 
 

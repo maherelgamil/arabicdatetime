@@ -56,10 +56,7 @@ class Arabicdatetime
 
     protected  $indianNum = ["٠","١","٢","٣","٤","٥","٦","٧","٨","٩"] ;
 
-    protected  $arabicNum = ["0","1","2","3","4","5","6","7","8","9"] ;
-
-
-    protected  $numericMode = 'indian' ; //arabic || indian
+    protected  $arabicNum = ["0","1","2","3","4","5","6","7","8","9"];
 
     protected  $hourArabicTitle = 'الساعه' ;
 
@@ -82,11 +79,12 @@ class Arabicdatetime
      * Get arabic date from unixtime
      *
      * @param unixtime $unixtime
+     * @param $numericMode ( arabic ||  indian)
      *
      * @return string contain date
      *
      */
-    protected function getArabicDate($unixtime)
+    protected function getArabicDate($unixtime , $numericMode = null)
     {
         //1get month
         $month =  $this->arabicMonths[date("M", $unixtime )] ;
@@ -108,11 +106,7 @@ class Arabicdatetime
         $current_date = $fullTime . ' - ' . $day . ' ' . date('d') . ' / ' . $month . ' / ' .date('Y');
 
 
-        if($this->numericMode == 'indian'){
-            $date = str_replace($standard , $eastern_arabic_symbols , $current_date);
-        }else{
-            $date = $current_date ;
-        }
+        $date = $numericMode == 'indian' ? str_replace($this->arabicNum , $this->indianNum , $current_date) : $current_date ;
 
         return $date ;
 
@@ -144,18 +138,18 @@ class Arabicdatetime
      *
      * @return string contain date
      */
-    public  function  date($unixtime , $mode = 0 )
+    public  function  date($unixtime , $mode = 0 , $numericMode = null)
     {
         if($mode == 0){
             //english
             $date =  $this->getEnglishDate($unixtime);
         }elseif($mode == 1){
             //arabic
-            $date = $this->getArabicDate($unixtime);
+            $date = $this->getArabicDate($unixtime,$numericMode);
 
         }elseif($mode == 2){
             //hijri
-            $date = $this->getHijriDate($unixtime);
+            $date = $this->getHijriDate($unixtime,$numericMode);
         }
 
 
