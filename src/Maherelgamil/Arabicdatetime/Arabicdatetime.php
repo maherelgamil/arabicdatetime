@@ -7,7 +7,7 @@
 class Arabicdatetime
 {
 
-    protected  $arabicMonths = [
+    protected  $months = [
 
         "Jan" => "يناير",
         "Feb" => "فبراير",
@@ -25,26 +25,17 @@ class Arabicdatetime
     ] ;
 
 
-    protected  $arabicDay = [
-
-        "السبت", "الأحد",
-        "الإثنين",
-        "الثلاثاء",
-        "الأربعاء",
-        "الخميس",
-        "الجمعة"
-    ] ;
 
 
-    protected  $englishDay = [
+    protected  $days = [
 
-        "Sat",
-        "Sun",
-        "Mon",
-        "Tue",
-        "Wed" ,
-        "Thu",
-        "Fri"
+        "Sat" => 'السبت',
+        "Sun" => 'الأحد',
+        "Mon" => 'الأثنين',
+        "Tue" => 'الثلاثاء',
+        "Wed" => 'الأربعاء',
+        "Thu" => 'الخميس',
+        "Fri" => 'الجمعه'
 
     ];
 
@@ -87,12 +78,10 @@ class Arabicdatetime
     protected function getArabicDate($unixtime , $numericMode = null)
     {
         //1get month
-        $month =  $this->arabicMonths[date("M", $unixtime )] ;
-
+        $month =  $this->months[date("M", $unixtime )] ;
 
         //get day
-        $day  = str_replace($this->englishDay, $this->arabicDay, date('D' , $unixtime));
-
+        $day = $this->days[date('D' , $unixtime)];
 
         //get time
         $time = date('H:i' , $unixtime );
