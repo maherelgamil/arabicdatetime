@@ -267,6 +267,20 @@ class Arabicdatetime
 
 
     /**
+     * Get islamic data from unix time
+     *
+     * @param $unixtime
+     * @param string $separator
+     * @return string
+     */
+    public function AHDateFromUnix($unixtime , $separator = '-')
+    {
+        $hiriDateArray =  $this->hjConvert(date('Y' , $unixtime),date('m' , $unixtime),date('j' , $unixtime));
+
+        return $hiriDateArray['day'].$separator.$hiriDateArray['month'].$separator.$hiriDateArray['year'];
+    }
+
+    /**
      * Get date in Arabic
      *
      * @param string $unixtime time
