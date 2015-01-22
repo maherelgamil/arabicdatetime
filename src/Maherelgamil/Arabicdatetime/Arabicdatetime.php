@@ -296,35 +296,65 @@ class Arabicdatetime
         if($mode == 0){
             //english
             $date =  $this->getEnglishDate($unixtime);
-        }elseif($mode == 1){
+        }
+        elseif($mode == 1)
+        {
             //arabic
             $date = $this->getArabicDate($unixtime,$numericMode);
 
-        }elseif($mode == 2){
+        }
+        elseif($mode == 2)
+        {
             //hijri
             $date = $this->getHijriDate($unixtime,$numericMode);
+        }
+        else
+        {
+            $date = 'Undefined MOD !!';
         }
 
 
         return $date ;
     }
 
-
+    /**
+     * Get Arabic Monthes
+     *
+     * @return array
+     */
     public function getArabicMonthes()
     {
-        return $this->arabicMonths ;
+        return $this->months ;
     }
 
+    /**
+     * Get Arabic Days
+     *
+     * @return array
+     */
     public function getArabicDays()
     {
-        return $this->arabicDay ;
+        return $this->days ;
     }
 
+    /**
+     * Get Hijri Months
+     *
+     * @return array
+     */
     public function getHijriMonths()
     {
         return $this->hijriMonths ;
     }
 
+
+    /**
+     * Get Remainnig Time
+     *
+     * @param $unixtime
+     * @param string $locale
+     * @return string
+     */
     public function remainnigTime($unixtime , $locale = 'ar')
     {
         $seconds = $unixtime - time();
