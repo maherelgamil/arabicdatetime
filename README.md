@@ -73,6 +73,32 @@ You can also add an alias to the list of class aliases in the same app.php
     
 ```
 
+### Get hijri data from unixtime
+
+```php
+    Arabicdatetime::AHDateFromUnix(1418123530 , '-');
+```
+
+### Get Arabic Monthes
+
+```PHP
+    Arabicdatetime::getArabicMonthes();
+```
+
+### Get Arabic Days
+
+```PHP
+    Arabicdatetime::getArabicDays();
+```
+
+
+### Get Hijri Months
+
+```PHP
+    Arabicdatetime::getHijriMonths();
+```
+
+
 ### Get remainnig time
 
 ```php
