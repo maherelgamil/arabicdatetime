@@ -100,7 +100,7 @@ class Arabicdatetime
             'D' => $dayName ,
             'm' => $month,
             'M' => $monthName,
-            'y' => $year,
+            'Y' => $year,
             't' => $time,
             'p' => $period
         ];
@@ -144,7 +144,7 @@ class Arabicdatetime
             'D' => $dayName ,
             'm' => $month,
             'M' => $monthName,
-            'y' => $year,
+            'Y' => $year,
             't' => $time,
             'p' => $period
         ];
@@ -193,7 +193,7 @@ class Arabicdatetime
             'D' => $dayName ,
             'm' => $month,
             'M' => $monthName,
-            'y' => $year,
+            'Y' => $year,
             't' => $time,
             'p' => $period
         ];
@@ -484,6 +484,5 @@ class Arabicdatetime
 
 
 }
-
 
 
