@@ -4,7 +4,7 @@
     "keywords": ["arabic", "date", " time", "laravel", "php"],
     "homepage": "https://github.com/maherelgamil/arabicdatetime",
     "license": "MIT",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "authors": [
         {
             "name": "maherelgamil",
@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "illuminate/support": "<=5.0.*"
+        "illuminate/support": "4.2.*"
     },
     "autoload": {
         "classmap": [
