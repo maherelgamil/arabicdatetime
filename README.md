@@ -2,7 +2,7 @@
 
 
 
-Easy and useful tool to get arabic date with arabic characters for laravel 4 .
+Easy and useful tool to get arabic date with arabic characters for laravel 4 & 5 .
 
 
 
@@ -44,21 +44,27 @@ You can also add an alias to the list of class aliases in the same app.php
 
 ## Useage
 
-### Get all arabic monthes
-
-```php
-    Arabicdatetime::getArabicMonthes();
-```
-
-### Get all arabic days
-
-```php
-    Arabicdatetime::getArabicDays();
-```
 
 ### Get date from unixtime
 
 ```php
+
+    //Arabicdatetime::date({unixtime} , {mode} , {schema} , {numericMode});
+
+    //This function take 4 Parameters :
+
+    //1- unixtime : ex '1418123530'
+
+    //2- mode :
+        0 for english date
+        1 for arabic date
+        2 for hijri date
+
+    //3- schema : as `php` schema , you can read this page for more info. : http://php.net/manual/en/function.date.php
+
+    //4- numericMode take to types 'indian'  or 'arabic' and 'arabic' is default
+
+
     //for english date
     Arabicdatetime::date(1418123530); // or Arabicdatetime::date(1418123530 , 0);
     
@@ -66,18 +72,14 @@ You can also add an alias to the list of class aliases in the same app.php
     Arabicdatetime::date(1418123530 , 1);
     
     //for arabic date with indian numbers
-    Arabicdatetime::date(1418123530 , 1 , 'indian');
+    Arabicdatetime::date(1418123530 , 1 , 'd / m / y '  ,'indian');
     
     //for hijri date in arabic with indian numbers
-    Arabicdatetime::date(1418123530 , 2 , 'indian');
+    Arabicdatetime::date(1418123530 , 2 , 'd / m / y '  , 'indian');
     
 ```
 
-### Get hijri data from unixtime
 
-```php
-    Arabicdatetime::AHDateFromUnix(1418123530 , '-');
-```
 
 ### Get Arabic Monthes
 

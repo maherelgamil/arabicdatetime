@@ -65,45 +65,27 @@ class Arabicdatetime
 
     protected  $arabicNum = ["0","1","2","3","4","5","6","7","8","9"];
 
+    protected $formates = ["d","D","j","l","L","N","S","w","z","W","F","M","m","n","t","L","o","Y","y","a","A","B","g","G","h","H","i","s"/*,"u","e","O","P","T","Z","c","r","U"*/];
+
 
 
     /**
      * Get english date from unixtime
      *
      * @param string $unixtime
+     * @param  string  $schema
+     * @param  string $numericMode 'arabic' || 'hindi'
      * @author Maher El Gamil <maherbusnes@gmail.com>
      * @return string contain date
      */
-    protected function getEnglishDate($unixtime  , $schema = 't p D d / M m / Y' )
+    protected function getEnglishDate($unixtime  , $schema = 'D d / M m / Y' )
     {
-        //get day
-        $day = date('d', $unixtime);
-        $dayName = date('D' , $unixtime);
-
-
-        //1get month
-        $month = date('m', $unixtime);
-        $monthName = date("M", $unixtime );
-
-
-        $year = date('Y', $unixtime) ;
-
-        //get time
-        $time = date('H:i' , $unixtime );
-
-        //get am or pm
-        $period = date('a' , $unixtime );
-
-
-        $currentDateArray = [
-            'd' => $day ,
-            'D' => $dayName ,
-            'm' => $month,
-            'M' => $monthName,
-            'Y' => $year,
-            't' => $time,
-            'p' => $period
-        ];
+        //generate date array
+        $currentDateArray = [];
+        foreach ($this->formates as $formate )
+        {
+            $currentDateArray[$formate] = date($formate , $unixtime );
+        }
 
         return $this->renderDate($currentDateArray , $schema);
     }
@@ -113,41 +95,24 @@ class Arabicdatetime
      * Get arabic date from unixtime
      *
      * @param string  $unixtime
-     * @param $numericMode ( arabic ||  indian)
+     * @param  string  $schema
+     * @param  string $numericMode 'arabic' || 'hindi'
      * @author Maher El Gamil <maherbusnes@gmail.com>
      * @return string contain date
      *
      */
-    protected function getArabicDate($unixtime , $schema = 't p D d / M m / Y' , $numericMode = null)
+    protected function getArabicDate($unixtime , $schema = 'D d / M m / Y' , $numericMode = null)
     {
-        //get day
-        $day = date('d', $unixtime);
-        $dayName = $this->days[date('D' , $unixtime)];
+        //generate date array
+        $currentDateArray = [];
+        foreach ($this->formates as $formate )
+        {
+            $currentDateArray[$formate] = date($formate , $unixtime );
+        }
 
+        $currentDateArray['D'] = $this->days[date('D' , $unixtime)];
+        $currentDateArray['M'] =  $this->months[date("M", $unixtime )] ;
 
-        //1get month
-        $month = date('m', $unixtime);
-        $monthName =  $this->months[date("M", $unixtime )] ;
-
-
-        $year = date('Y', $unixtime) ;
-
-        //get time
-        $time = date('H:i' , $unixtime );
-
-        //get am or pm
-        $period = $this->period[date('a' , $unixtime )];
-
-
-        $currentDateArray = [
-            'd' => $day ,
-            'D' => $dayName ,
-            'm' => $month,
-            'M' => $monthName,
-            'Y' => $year,
-            't' => $time,
-            'p' => $period
-        ];
 
         return $this->renderDate($currentDateArray , $schema , $numericMode);
 
@@ -159,48 +124,139 @@ class Arabicdatetime
      * Get hijri date from unixtime
      *
      * @param string $unixtime
+     * @param  string  $schema
+     * @param  string $numericMode 'arabic' || 'hindi'
      * @author Maher El Gamil <maherbusnes@gmail.com>
      * @return string contain date
      *
      */
-    protected function getHijriDate($unixtime , $schema = 't p D d / M m / Y'  , $numericMode = null)
+    protected function getHijriDate($unixtime , $schema = 'D d / M m / Y'  , $numericMode = null)
     {
+        //generate date array
+        $currentDateArray = [];
+        foreach ($this->formates as $formate )
+        {
+            $currentDateArray[$formate] = date($formate , $unixtime );
+        }
+
+
         $hiriDateArray =  $this->hjConvert(date('Y' , $unixtime),date('m' , $unixtime),date('j' , $unixtime));
 
         //get day
-        $day = $hiriDateArray['day'];
-        $dayName = $this->days[date('D' , $unixtime)];
-
-
-
-        //get month
-        $month = $hiriDateArray['month'] ;
-        $monthName = array_values($this->hijriMonths)[$hiriDateArray['month']];
-
-        //get year
-        $year = $hiriDateArray['year'];
-
-
-        //get time
-        $time = date('H:i' , $unixtime );
-
-        //get am or pm
-        $period = $this->period[date('a' , $unixtime )];
-
-
-        $currentDateArray = [
-            'd' => $day ,
-            'D' => $dayName ,
-            'm' => $month,
-            'M' => $monthName,
-            'Y' => $year,
-            't' => $time,
-            'p' => $period
-        ];
+        $currentDateArray['d'] = $hiriDateArray['day'];
+        $currentDateArray['D'] = $this->days[date('D' , $unixtime)];
+        $currentDateArray['m'] = $hiriDateArray['month'] ;
+        $currentDateArray['M'] = array_values($this->hijriMonths)[$hiriDateArray['month']];
+        $currentDateArray['Y'] = $hiriDateArray['year'];
+        $currentDateArray['y'] = substr($hiriDateArray['year'] , -2 , 2 );
 
 
         return $this->renderDate($currentDateArray , $schema , $numericMode);
 
+    }
+
+
+    /**
+     * Get date in Arabic
+     *
+     * @param  string $unixtime time
+     * @param  int $mode 0 english || 1 arabic || 2 hijri
+     * @param  string  $schema
+     * @param  string $numericMode 'arabic' || 'hindi'
+     * @author Maher El Gamil <maherbusnes@gmail.com>
+     * @return string contain date
+     */
+    public  function  date($unixtime , $mode = 0 , $schema = 'D d / M m / Y' , $numericMode = null)
+    {
+        if($mode == 0){
+            //english
+            $date =  $this->getEnglishDate($unixtime , $schema);
+        }
+        elseif($mode == 1)
+        {
+            //arabic
+            $date = $this->getArabicDate($unixtime , $schema ,$numericMode);
+
+        }
+        elseif($mode == 2)
+        {
+            //hijri
+            $date = $this->getHijriDate($unixtime , $schema ,$numericMode);
+        }
+        else
+        {
+            $date = 'Undefined MOD !!';
+        }
+
+
+        return $date ;
+    }
+
+
+
+    /**
+     * Get Arabic Monthes
+     *
+     * @author Maher El Gamil <maherbusnes@gmail.com>
+     * @return array
+     */
+    public function getArabicMonthes()
+    {
+        return $this->months ;
+    }
+
+    /**
+     * Get Arabic Days
+     *
+     * @author Maher El Gamil <maherbusnes@gmail.com>
+     * @return array
+     */
+    public function getArabicDays()
+    {
+        return $this->days ;
+    }
+
+    /**
+     * Get Hijri Months
+     *
+     * @author Maher El Gamil <maherbusnes@gmail.com>
+     * @return array
+     */
+    public function getHijriMonths()
+    {
+        return $this->hijriMonths ;
+    }
+
+
+    /**
+     * Get Remainnig Time
+     *
+     * @param $unixtime
+     * @author Maher El Gamil <maherbusnes@gmail.com>
+     * @return Array $remaining
+     */
+    public function remainnigTime($unixtime)
+    {
+
+        $seconds = $unixtime - time();
+
+        //get days
+        $remaining['days'] = floor($seconds / 86400) > 0 ?  floor($seconds / 86400) : null ;
+
+        //get hours
+        $seconds %= 86400;
+        $remaining['hours'] = floor($seconds / 3600) > 0 ? floor($seconds / 3600) : null ;
+
+        //get minutes
+        $seconds %= 3600;
+        $remaining['minutes'] = floor($seconds / 60) > 0  ? floor($seconds / 60) : null ;
+
+        //get seconds
+        $seconds %= 60;
+        $remaining['seconds'] = $seconds > 0 ? $seconds : null  ;
+
+
+        return $remaining ;
     }
 
 
@@ -213,7 +269,7 @@ class Arabicdatetime
      * @author Maher El Gamil <maherbusnes@gmail.com>
      * @return mixed
      */
-    protected  function renderDate(array $currentDateArray , $schema = 't p D d / M m / Y' , $numericMode = null )
+    protected  function renderDate(array $currentDateArray , $schema = 'D d / M m / Y' , $numericMode = null )
     {
         $currentDate = $this->generateFullDateStatment($currentDateArray , $schema );
 
@@ -229,17 +285,18 @@ class Arabicdatetime
      * @author Maher El Gamil <maherbusnes@gmail.com>
      * @return mixed
      */
-    protected function generateFullDateStatment(array $dateArray , $schema = 't p D d / M m / Y')
+    protected function generateFullDateStatment(array $dateArray , $schema = 'D d / M m / Y')
     {
-        $dataStatement = str_replace('t',$dateArray['t'],$schema);
-        $dataStatement = str_replace('p',$dateArray['p'],$dataStatement);
-        $dataStatement = str_replace('D',$dateArray['D'],$dataStatement);
-        $dataStatement = str_replace('d',$dateArray['d'],$dataStatement);
-        $dataStatement = str_replace('M',$dateArray['M'],$dataStatement);
-        $dataStatement = str_replace('m',$dateArray['m'],$dataStatement);
-        $dataStatement = str_replace('Y',$dateArray['Y'],$dataStatement);
 
-        return $dataStatement ;
+        foreach($this->formates as $formate )
+        {
+            if(isset($dateArray[$formate]))
+            {
+                $schema = str_replace($formate ,$dateArray[$formate],$schema);
+            }
+        }
+
+        return $schema ;
     }
 
 
@@ -356,129 +413,6 @@ class Arabicdatetime
         $jd = (int)((11 * $year + 3) / 30) + (int)(354 * $year) + (int)(30 * $month)
             - (int)(($month - 1) / 2) + $day + 1948440 - 385;
         return $jd;
-    }
-
-
-    /**
-     * Get islamic data from unix time
-     * @ToDo will delete it
-     * @param $unixtime
-     * @param string $separator
-     * @author Maher El Gamil <maherbusnes@gmail.com>
-     * @return string
-     */
-    public function AHDateFromUnix($unixtime , $separator = '-')
-    {
-        $hiriDateArray =  $this->hjConvert(date('Y' , $unixtime),date('m' , $unixtime),date('j' , $unixtime));
-
-        return $hiriDateArray['day'].$separator.$hiriDateArray['month'].$separator.$hiriDateArray['year'];
-    }
-
-    /**
-     * Get date in Arabic
-     *
-     * @param string $unixtime time
-     * @param int $mode 0 english || 1 arabic || 2 hijri
-     * @author Maher El Gamil <maherbusnes@gmail.com>
-     * @return string contain date
-     */
-    public  function  date($unixtime , $mode = 0 , $schema = 't p D d / M m / Y' , $numericMode = null)
-    {
-        if($mode == 0){
-            //english
-            $date =  $this->getEnglishDate($unixtime , $schema);
-        }
-        elseif($mode == 1)
-        {
-            //arabic
-            $date = $this->getArabicDate($unixtime , $schema ,$numericMode);
-
-        }
-        elseif($mode == 2)
-        {
-            //hijri
-            $date = $this->getHijriDate($unixtime , $schema ,$numericMode);
-        }
-        else
-        {
-            $date = 'Undefined MOD !!';
-        }
-
-
-        return $date ;
-    }
-
-    /**
-     * Get Arabic Monthes
-     *
-     * @author Maher El Gamil <maherbusnes@gmail.com>
-     * @return array
-     */
-    public function getArabicMonthes()
-    {
-        return $this->months ;
-    }
-
-    /**
-     * Get Arabic Days
-     *
-     * @author Maher El Gamil <maherbusnes@gmail.com>
-     * @return array
-     */
-    public function getArabicDays()
-    {
-        return $this->days ;
-    }
-
-    /**
-     * Get Hijri Months
-     *
-     * @author Maher El Gamil <maherbusnes@gmail.com>
-     * @return array
-     */
-    public function getHijriMonths()
-    {
-        return $this->hijriMonths ;
-    }
-
-
-    /**
-     * Get Remainnig Time
-     *
-     * @param $unixtime
-     * @param string $locale
-     * @author Maher El Gamil <maherbusnes@gmail.com>
-     * @return string
-     */
-    public function remainnigTime($unixtime , $locale = 'ar')
-    {
-        $seconds = $unixtime - time();
-
-        $days = floor($seconds / 86400);
-        $seconds %= 86400;
-
-        $hours = floor($seconds / 3600);
-        $seconds %= 3600;
-
-        $minutes = floor($seconds / 60);
-        $seconds %= 60;
-
-        if($locale == 'ar')
-        {
-
-            $remaining = ($days    > 0 ? $days    .' يوم و'   : '' ) .
-                ($hours   > 0 ? $hours   .' ساعه و'  : '' ) .
-                ($minutes > 0 ? $minutes .' دقيقة و' : '' ) .
-                ($seconds > 0 ? $seconds .' ثانيه '  : '' ) ;
-        }else{
-            $remaining = ($days    > 0 ? $days    .' days and'   : '' ) .
-                ($hours   > 0 ? $hours   .' hours and'  : '' ) .
-                ($minutes > 0 ? $minutes .' minutes and' : '' ) .
-                ($seconds > 0 ? $seconds .' seconds'  : '' ) ;
-        }
-
-
-        return $remaining ;
     }
 
 
