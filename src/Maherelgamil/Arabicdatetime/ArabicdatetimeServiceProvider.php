@@ -16,32 +16,20 @@ class ArabicdatetimeServiceProvider extends ServiceProvider {
 	 *
 	 * @return void
 	 */
-	public function boot()
-	{
-		$this->package('maherelgamil/arabicdatetime');
-	}
+	public function boot(){}
 
 	/**
 	 * Register the service provider.
 	 *
 	 * @return void
 	 */
-	public function register()
-	{
-        $this->app['arabicdatetime'] = $this->app->share(function($app)
-        {
-            return new Arabicdatetime;
-        });
-	}
+	public function register(){}
 
 	/**
 	 * Get the services provided by the provider.
 	 *
 	 * @return array
 	 */
-	public function provides()
-	{
-		return array();
-	}
+	public function provides(){}
 
 }

@@ -2,7 +2,7 @@
 
 
 
-Easy and useful tool to get arabic date with arabic characters for laravel 4 & 5 .
+Easy and useful tool to get arabic date with arabic characters for laravel >= 5.1.0  .
 
 
 
