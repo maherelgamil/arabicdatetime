@@ -1,18 +1,22 @@
 {
     "name": "maherelgamil/arabicdatetime",
     "description": "Easy and useful tool to get arabic date with arabic characters for laravel  >= 5.1.0",
-    "keywords": ["arabic", "date", " time", "laravel", "php"],
+    "keywords": ["arabic", "date", " time", "laravel", "php" , "maherelgamil" , "weeby"],
     "homepage": "https://github.com/maherelgamil/arabicdatetime",
     "license": "MIT",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "authors": [
         {
             "name": "maherelgamil",
-            "email": "maherbusnes@gmail.com"
+            "email": "maherbusnes@gmail.com",
+            "homepage": "http://www.maerelgamil.com",
+            "role": "Developer"
         },
         {
             "name": "weeby-dev",
-            "email": "weebydev@gmail.com"
+            "email": "weebydev@gmail.com",
+            "homepage": "http://www.weeby-dev.com",
+            "role": "Developer"
         }
 
     ],
