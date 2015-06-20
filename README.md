@@ -22,7 +22,7 @@ Run `composer install` to get the latest version of the package.
 
 It's recommended that you use Composer, however you can download and install from this repository.
 
-### Laravel 4
+### Laravel 5.1
 
 ArabicDateTime comes with a service provider for Laravel 4. You'll need to add it to your `composer.json` as mentioned in the above steps, then register the service provider with your application.
 
@@ -30,7 +30,7 @@ Open `app/config/app.php` and find the `providers` key. Add `Arabicdatetime\Arab
 
 ```php
 	...
-	'Maherelgamil\Arabicdatetime\ArabicdatetimeServiceProvider'
+	Maherelgamil\Arabicdatetime\ArabicdatetimeServiceProvider::class
 	...
 ```
 
@@ -38,7 +38,7 @@ You can also add an alias to the list of class aliases in the same app.php
 
 ```php
 	...
-	'Arabicdatetime'    => 'Maherelgamil\Arabicdatetime\Facades\Arabicdatetime'
+	'Arabicdatetime'    => Maherelgamil\Arabicdatetime\Facades\Arabicdatetime::class
 	...
 ```
 
