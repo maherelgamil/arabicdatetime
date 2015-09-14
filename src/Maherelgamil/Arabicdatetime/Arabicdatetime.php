@@ -145,8 +145,8 @@ class Arabicdatetime
         //get day
         $currentDateArray['d'] = $hiriDateArray['day'];
         $currentDateArray['D'] = $this->days[date('D' , $unixtime)];
-        $currentDateArray['m'] = $hiriDateArray['month'] ;
-        $currentDateArray['M'] = array_values($this->hijriMonths)[$hiriDateArray['month']];
+        $currentDateArray['m'] = $hiriDateArray['month'] - 1;
+        $currentDateArray['M'] = array_values($this->hijriMonths)[$hiriDateArray['month'] -1 ];
         $currentDateArray['Y'] = $hiriDateArray['year'];
         $currentDateArray['y'] = substr($hiriDateArray['year'] , -2 , 2 );
 
