@@ -2,7 +2,7 @@
 
 
 
-Easy and useful tool to get arabic date with arabic characters for laravel >= 5.1.0  .
+Easy and useful tool to generate arabic or hijri date with multi-language support for laravel .
 
 
 
@@ -13,7 +13,7 @@ Easy and useful tool to get arabic date with arabic characters for laravel >= 5.
 
 Add Laravel ArabicDateTime to your `composer.json` file.
 
-    "maherelgamil/arabicdatetime": "dev-master"
+    "maherelgamil/arabicdatetime": "4.0.*"
 
 Run `composer install` to get the latest version of the package.
 
@@ -42,6 +42,11 @@ You can also add an alias to the list of class aliases in the same app.php
 	...
 ```
 
+Now . publish vendor
+```
+    php artisan vendor:publish
+```
+
 ## Useage
 
 
@@ -56,20 +61,17 @@ You can also add an alias to the list of class aliases in the same app.php
     //1- unixtime : ex '1418123530'
 
     //2- mode :
-        0 for english date
-        1 for arabic date
-        2 for hijri date
+        0 for arabic date
+        1 for hijri date
 
     //3- schema : as `php` schema , you can read this page for more info. : http://php.net/manual/en/function.date.php
 
     //4- numericMode take to types 'indian'  or 'arabic' and 'arabic' is default
 
 
-    //for english date
-    Arabicdatetime::date(1418123530); // or Arabicdatetime::date(1418123530 , 0);
     
     //for arabic date
-    Arabicdatetime::date(1418123530 , 1);
+    Arabicdatetime::date(1418123530 , 0);
     
     //for arabic date with indian numbers
     Arabicdatetime::date(1418123530 , 1 , 'd / m / y '  ,'indian');
@@ -81,11 +83,12 @@ You can also add an alias to the list of class aliases in the same app.php
 
 
 
-### Get Arabic Monthes
+### Get Days with locale language
 
 ```PHP
-    Arabicdatetime::getArabicMonthes();
+    Arabicdatetime::getDays();
 ```
+
 
 ### Get Arabic Days
 
@@ -94,17 +97,40 @@ You can also add an alias to the list of class aliases in the same app.php
 ```
 
 
-### Get Hijri Months
+### Get Months With locale language
+
+```PHP
+    Arabicdatetime::getMonths();
+```
+
+
+### Get Arabic Months
+
+```PHP
+    Arabicdatetime::getArabicMonths();
+```
+
+
+### Get Hijri Months with locale language
 
 ```PHP
     Arabicdatetime::getHijriMonths();
 ```
 
 
+
+### Get Hijri Months
+
+```PHP
+    Arabicdatetime::getArabicHijriMonths();
+```
+
+
+
 ### Get remainnig time
 
 ```php
-    Arabicdatetime::remainnigTime(1418123530);
+    Arabicdatetime::remainingTime(1418123530);
 ```
 
 

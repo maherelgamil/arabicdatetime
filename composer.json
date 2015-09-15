@@ -1,10 +1,10 @@
 {
     "name": "maherelgamil/arabicdatetime",
-    "description": "Easy and useful tool to get arabic date with arabic characters for laravel  >= 5.1.0",
-    "keywords": ["arabic", "date", " time", "laravel", "php" , "maherelgamil" , "weeby"],
+    "description": "Easy and useful tool to generate arabic or hijri date with multi-language support for laravel",
+    "keywords": ["arabic", "date", " time", "laravel", "php" , "maherelgamil" , "weeby" , "hijri"],
     "homepage": "https://github.com/maherelgamil/arabicdatetime",
     "license": "MIT",
-    "version": "3.0.2",
+    "version": "4.0.0",
     "authors": [
         {
             "name": "maherelgamil",
@@ -21,8 +21,8 @@
 
     ],
     "require": {
-        "php": ">=5.4.0",
-        "illuminate/support": ">=5.1.0"
+        "php": ">=5.5.9",
+        "illuminate/support": ">=5.*"
     },
     "autoload": {
         "classmap": [
