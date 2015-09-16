@@ -244,13 +244,15 @@ class Arabicdatetime
 
         $hiriDateArray =  $this->model->hjConvert(date('Y' , $unixtime),date('m' , $unixtime),date('j' , $unixtime));
 
+
         //get day
         $currentDateArray['d'] = $hiriDateArray['day'];
         $currentDateArray['D'] = trans("arabicdatetime::days.".strtolower(date('D' , $unixtime)));
-        $currentDateArray['m'] = trans("arabicdatetime::hijri_months.".$this->model->getHijriMonths()[$hiriDateArray['month'] - 1]);
-        $currentDateArray['M'] = $this->model->getHijriMonths()[$hiriDateArray['month'] - 1];
+        $currentDateArray['M'] = trans("arabicdatetime::hijri_months.".$this->model->getHijriMonths()[$hiriDateArray['month'] - 1]);
+        $currentDateArray['m'] = $hiriDateArray['month'];
         $currentDateArray['Y'] = $hiriDateArray['year'];
         $currentDateArray['y'] = substr($hiriDateArray['year'] , -2 , 2 );
+
 
         return $this->renderDate($currentDateArray , $schema , $numericMode);
     }
