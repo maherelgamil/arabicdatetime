@@ -140,6 +140,12 @@ Now . publish vendor
     Arabicdatetime::leftTime(1418123530);
 ```
 
+### Get left or remaining  time
+
+```php
+    Arabicdatetime::leftRemainingTime(1418123530);
+```
+
 
 ## License
 

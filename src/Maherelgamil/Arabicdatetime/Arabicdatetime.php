@@ -235,6 +235,36 @@ class Arabicdatetime
     }
 
 
+    /**
+     * Get Left Or Remaining Time
+     *
+     * @param $unixtime
+     * @return string
+     */
+    public function leftRemainingTime($unixtime)
+    {
+        $seconds = $unixtime - time();
+
+        if($seconds > 0 )
+        {
+            $remaining = $this->extractSecondsToTimeArray($seconds);
+
+            $statement = $this->generateRemainingStatement($remaining) ;
+        }
+        else
+        {
+            $seconds = $seconds*-1 ;
+
+            $remaining = $this->extractSecondsToTimeArray($seconds);
+
+            $statement = $this->generateLeftStatement($remaining) ;
+        }
+
+        return $statement ;
+    }
+
+
+
 
 
     /**
@@ -358,6 +388,12 @@ class Arabicdatetime
     }
 
 
+    /**
+     * Generate Left Statement
+     *
+     * @param array $remaining
+     * @return string
+     */
     protected function generateLeftStatement(array $remaining)
     {
         $statement = trans("arabicdatetime::general.ago");
@@ -367,7 +403,12 @@ class Arabicdatetime
     }
 
 
-
+    /**
+     * Trans Time
+     *
+     * @param array $remaining
+     * @return string
+     */
     protected function transTime(array $remaining)
     {
         $statement = '' ;
@@ -474,6 +515,44 @@ class Arabicdatetime
     }
 
 
+    /**
+     * Extract Seconds To Time Array
+     *
+     * @param $seconds
+     * @return mixed
+     */
+    protected function extractSecondsToTimeArray($seconds)
+    {
+        //get years
+        $remaining['years'] = floor($seconds / 31104000) > 0 ?  floor($seconds / 31104000) : null ;
+
+        //get months
+        $seconds %= 31104000;
+        $remaining['months'] = floor($seconds / 2592000) > 0 ?  floor($seconds / 2592000) : null ;
+
+
+        //get weeks
+        $seconds %= 2592000;
+        $remaining['weeks'] = floor($seconds / 604800) > 0 ?  floor($seconds / 604800) : null ;
+
+        //get days
+        $seconds %= 604800;
+        $remaining['days'] = floor($seconds / 86400) > 0 ?  floor($seconds / 86400) : null ;
+
+        //get hours
+        $seconds %= 86400;
+        $remaining['hours'] = floor($seconds / 3600) > 0 ? floor($seconds / 3600) : null ;
+
+        //get minutes
+        $seconds %= 3600;
+        $remaining['minutes'] = floor($seconds / 60) > 0  ? floor($seconds / 60) : null ;
+
+        //get seconds
+        $seconds %= 60;
+        $remaining['seconds'] = $seconds > 0 ? $seconds : null  ;
+
+        return $remaining ;
+    }
 
 }
 
