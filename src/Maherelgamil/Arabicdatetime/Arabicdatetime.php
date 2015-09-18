@@ -193,6 +193,48 @@ class Arabicdatetime
     }
 
 
+    /**
+     * Get left time
+     *
+     * @param $unixtime
+     * @return string
+     */
+    public function leftTime($unixtime)
+    {
+        $seconds = time() - $unixtime ;
+
+        //get years
+        $remaining['years'] = floor($seconds / 31104000) > 0 ?  floor($seconds / 31104000) : null ;
+
+        //get months
+        $seconds %= 31104000;
+        $remaining['months'] = floor($seconds / 2592000) > 0 ?  floor($seconds / 2592000) : null ;
+
+
+        //get weeks
+        $seconds %= 2592000;
+        $remaining['weeks'] = floor($seconds / 604800) > 0 ?  floor($seconds / 604800) : null ;
+
+        //get days
+        $seconds %= 604800;
+        $remaining['days'] = floor($seconds / 86400) > 0 ?  floor($seconds / 86400) : null ;
+
+        //get hours
+        $seconds %= 86400;
+        $remaining['hours'] = floor($seconds / 3600) > 0 ? floor($seconds / 3600) : null ;
+
+        //get minutes
+        $seconds %= 3600;
+        $remaining['minutes'] = floor($seconds / 60) > 0  ? floor($seconds / 60) : null ;
+
+        //get seconds
+        $seconds %= 60;
+        $remaining['seconds'] = $seconds > 0 ? $seconds : null  ;
+
+        return $this->generateLeftStatement($remaining) ;
+    }
+
+
 
 
     /**
@@ -311,8 +353,24 @@ class Arabicdatetime
     {
         $statement = trans("arabicdatetime::general.remain");
         $statement .= " ";
+        $statement .= $this->transTime($remaining);
+        return $statement ;
+    }
 
 
+    protected function generateLeftStatement(array $remaining)
+    {
+        $statement = trans("arabicdatetime::general.ago");
+        $statement .= " ";
+        $statement .= $this->transTime($remaining);
+        return $statement ;
+    }
+
+
+
+    protected function transTime(array $remaining)
+    {
+        $statement = '' ;
 
         if(isset($remaining['years']))
         {
@@ -324,7 +382,7 @@ class Arabicdatetime
             }
             else $statement .= intval($remaining['years']) . " " . trans("arabicdatetime::general.year");
             $statement .= " ";
-            $statement .= trans("arabicdatetime::general.and");
+            $statement .= isset($remaining['months']) ? trans("arabicdatetime::general.and") : null ;
             $statement .= " ";
         }
 
@@ -339,7 +397,7 @@ class Arabicdatetime
             }
             else $statement .= intval($remaining['months']) . " " . trans("arabicdatetime::general.month");
             $statement .= " ";
-            $statement .= trans("arabicdatetime::general.and");
+            $statement .= isset($remaining['weeks']) ? trans("arabicdatetime::general.and") : null ;
             $statement .= " ";
         }
 
@@ -354,7 +412,7 @@ class Arabicdatetime
             }
             else $statement .= intval($remaining['weeks']) . " " . trans("arabicdatetime::general.week");
             $statement .= " ";
-            $statement .= trans("arabicdatetime::general.and");
+            $statement .= isset($remaining['days']) ? trans("arabicdatetime::general.and") : null ;
             $statement .= " ";
         }
 
@@ -368,7 +426,7 @@ class Arabicdatetime
             }
             else $statement .= intval($remaining['days']) . " " . trans("arabicdatetime::general.day");
             $statement .= " ";
-            $statement .= trans("arabicdatetime::general.and");
+            $statement .= isset($remaining['hours']) ? trans("arabicdatetime::general.and") : null ;
             $statement .= " ";
         }
 
@@ -382,7 +440,7 @@ class Arabicdatetime
             }
             else $statement .= intval($remaining['hours']) . " " . trans("arabicdatetime::general.hour");
             $statement .= " ";
-            $statement .= trans("arabicdatetime::general.and");
+            $statement .= isset($remaining['minutes']) ? trans("arabicdatetime::general.and") : null ;
             $statement .= " ";
         }
 
@@ -396,7 +454,7 @@ class Arabicdatetime
             }
             else $statement .= intval($remaining['minutes']) . " " . trans("arabicdatetime::general.minute");
             $statement .= " ";
-            $statement .= trans("arabicdatetime::general.and");
+            $statement .= isset($remaining['seconds']) ? trans("arabicdatetime::general.and") : null ;
             $statement .= " ";
         }
 
@@ -414,6 +472,8 @@ class Arabicdatetime
 
         return $statement ;
     }
+
+
 
 }
 

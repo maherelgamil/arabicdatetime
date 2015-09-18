@@ -32,5 +32,7 @@ return [
     'one_second' => 'ثانيه واحدة',
     'two_second' => 'ثانيتان',
     "remain" => 'متبقى',
+    "left" =>'مضى' ,
+    "ago" => 'منذو' ,
     'and' => 'و'
 ];

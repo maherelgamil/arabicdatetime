@@ -134,6 +134,13 @@ Now . publish vendor
 ```
 
 
+### Get left  time
+
+```php
+    Arabicdatetime::leftTime(1418123530);
+```
+
+
 ## License
 
 ArabicDateTime is an open-sourced laravel package licensed under the MIT license
