@@ -1,10 +1,12 @@
 # ArabicDateTime
-
-
-
 Easy and useful tool to generate arabic or hijri date with multi-language support for laravel .
 
-
+[![Latest Stable Version](https://poser.pugx.org/maherelgamil/arabicdatetime/v/stable)](https://packagist.org/packages/maherelgamil/arabicdatetime)
+[![Total Downloads](https://poser.pugx.org/maherelgamil/arabicdatetime/downloads)](https://packagist.org/packages/maherelgamil/arabicdatetime)
+[![Latest Unstable Version](https://poser.pugx.org/maherelgamil/arabicdatetime/v/unstable)](https://packagist.org/packages/maherelgamil/arabicdatetime)
+[![License](https://poser.pugx.org/maherelgamil/arabicdatetime/license)](https://packagist.org/packages/maherelgamil/arabicdatetime)
+[![Monthly Downloads](https://poser.pugx.org/maherelgamil/arabicdatetime/d/monthly)](https://packagist.org/packages/maherelgamil/arabicdatetime)
+[![StyleCI](https://styleci.io/repos/27773486/shield)](https://styleci.io/repos/27773486)
 
 
 ## Installation
