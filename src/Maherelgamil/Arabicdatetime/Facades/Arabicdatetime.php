@@ -1,8 +1,11 @@
-<?php namespace Maherelgamil\Arabicdatetime\Facades;
+<?php
+
+namespace Maherelgamil\Arabicdatetime\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class Arabicdatetime extends Facade {
+class Arabicdatetime extends Facade
+{
     /**
      * Get the registered name of the component.
      *
