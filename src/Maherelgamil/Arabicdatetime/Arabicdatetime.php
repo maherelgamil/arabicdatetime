@@ -288,6 +288,7 @@ class Arabicdatetime
 
         $currentDateArray['D'] = trans("arabicdatetime::days.".strtolower(date('D' , $unixtime)));
         $currentDateArray['M'] = trans("arabicdatetime::months.".strtolower(date('M' , $unixtime)));
+        $currentDateArray['A'] = trans("arabicdatetime::general.".strtolower(date('A' , $unixtime)));
 
 
         return $this->renderDate($currentDateArray , $schema , $numericMode);
@@ -324,6 +325,7 @@ class Arabicdatetime
         $currentDateArray['m'] = $hiriDateArray['month'];
         $currentDateArray['Y'] = $hiriDateArray['year'];
         $currentDateArray['y'] = substr($hiriDateArray['year'] , -2 , 2 );
+        $currentDateArray['A'] = trans("arabicdatetime::general.".strtolower(date('A' , $unixtime)));
 
 
         return $this->renderDate($currentDateArray , $schema , $numericMode);
