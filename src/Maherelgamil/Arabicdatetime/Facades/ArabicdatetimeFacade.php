@@ -1,9 +1,12 @@
-<?php namespace Maherelgamil\Arabicdatetime\Facades;
+<?php
+
+namespace Maherelgamil\Arabicdatetime\Facades;
 
 use Illuminate\Support\Facades\Facade;
 use Maherelgamil\Arabicdatetime\Arabicdatetime;
 
-class ArabicdatetimeFacade extends Facade {
+class ArabicdatetimeFacade extends Facade
+{
     /**
      * Get the registered name of the component.
      *
@@ -11,6 +14,6 @@ class ArabicdatetimeFacade extends Facade {
      */
     protected static function getFacadeAccessor()
     {
-        return Arabicdatetime::class ;
+        return Arabicdatetime::class;
     }
 }
