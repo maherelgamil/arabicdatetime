@@ -24,7 +24,7 @@ Run `composer install` to get the latest version of the package.
 
 It's recommended that you use Composer, however you can download and install from this repository.
 
-### Laravel 5.1
+### Laravel 5.*
 
 ArabicDateTime comes with a service provider for Laravel 4. You'll need to add it to your `composer.json` as mentioned in the above steps, then register the service provider with your application.
 

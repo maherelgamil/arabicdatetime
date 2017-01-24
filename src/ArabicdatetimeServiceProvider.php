@@ -26,10 +26,10 @@ class ArabicdatetimeServiceProvider extends ServiceProvider
     {
 
         //load & publish langs
-        $this->loadTranslationsFrom(__DIR__.'/../../resources/lang', 'arabicdatetime');
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'arabicdatetime');
 
         $this->publishes([
-            __DIR__.'/../../resources/lang' => base_path('resources/lang/vendor/arabicdatetime'),
+            __DIR__.'/../resources/lang' => base_path('resources/lang/vendor/arabicdatetime'),
         ]);
     }
 

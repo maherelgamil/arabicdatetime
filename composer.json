@@ -1,7 +1,16 @@
 {
     "name": "maherelgamil/arabicdatetime",
     "description": "Easy and useful tool to generate arabic or hijri date with multi-language support for laravel",
-    "keywords": ["arabic", "date", " time", "laravel", "php" , "maherelgamil" , "weeby" , "hijri"],
+    "keywords": [
+        "arabic",
+        "date",
+        " time",
+        "laravel",
+        "php" ,
+        "maherelgamil" ,
+        "buzzylab" ,
+        "hijri"
+    ],
     "homepage": "https://github.com/maherelgamil/arabicdatetime",
     "license": "MIT",
     "version": "4.0.2",
@@ -9,13 +18,13 @@
         {
             "name": "maherelgamil",
             "email": "maherbusnes@gmail.com",
-            "homepage": "http://www.maerelgamil.com",
+            "homepage": "http://www.maherelgamil.com",
             "role": "Developer"
         },
         {
-            "name": "weeby-dev",
-            "email": "weebydev@gmail.com",
-            "homepage": "http://www.weeby-dev.com",
+            "name": "buzzylab",
+            "email": "buzzyllab@gmail.com",
+            "homepage": "http://www.buzzylab.com",
             "role": "Developer"
         }
 
@@ -25,9 +34,7 @@
         "illuminate/support": "~5.0"
     },
     "autoload": {
-        "classmap": [
-        ],
-        "psr-0": {
+        "psr-4": {
             "Maherelgamil\\Arabicdatetime\\": "src/"
         }
     },
