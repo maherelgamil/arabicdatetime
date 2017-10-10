@@ -63,23 +63,20 @@ Now . publish vendor
     //1- unixtime : ex '1418123530'
 
     //2- mode :
-        0 for arabic date
-        1 for hijri date
+        0 for Arabic date
+        1 for Hijri date
 
     //3- schema : as `php` schema , you can read this page for more info. : http://php.net/manual/en/function.date.php
 
-    //4- numericMode take to types 'indian'  or 'arabic' and 'arabic' is default
+    //4- numericMode takes two types 'indian'  or 'arabic' and 'arabic' is default
 
 
     
-    //for arabic date
+    //for Gregorian date with Englsih numbers
     Arabicdatetime::date(1418123530 , 0);
     
-    //for arabic date with indian numbers
+    //for Hijri date with indian numbers
     Arabicdatetime::date(1418123530 , 1 , 'd / m / y '  ,'indian');
-    
-    //for hijri date in arabic with indian numbers
-    Arabicdatetime::date(1418123530 , 2 , 'd / m / y '  , 'indian');
     
 ```
 
