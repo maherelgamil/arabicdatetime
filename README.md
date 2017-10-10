@@ -68,7 +68,7 @@ Now . publish vendor
 
     //3- schema : as `php` schema , you can read this page for more info. : http://php.net/manual/en/function.date.php
 
-    //4- numericMode take two types 'indian'  or 'arabic' and 'arabic' is default
+    //4- numericMode takes two types 'indian'  or 'arabic' and 'arabic' is default
 
 
     
