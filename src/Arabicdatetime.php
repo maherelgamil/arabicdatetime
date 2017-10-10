@@ -262,8 +262,6 @@ class Arabicdatetime
         $this->model->setCorrectionCoefficient($correction);
     }
 
-
-
     /**
      * Get Correction for Hijri Date.
      *
@@ -319,12 +317,11 @@ class Arabicdatetime
             $currentDateArray[$formate] = date($formate, $unixtime);
         }
 
-        $day = date('j' , $unixtime);
+        $day = date('j', $unixtime);
 
         $correction = $this->getCorrection();
-        if($correction !== 0)
-        {
-            $day = date('j' , strtotime ($correction.' day', $unixtime));
+        if($correction !== 0) {
+            $day = date('j', strtotime($correction.' day', $unixtime));
         }
 
         $hiriDateArray = $this->model->hjConvert(date('Y', $unixtime), date('m', $unixtime), date('j', $unixtime));

@@ -260,7 +260,6 @@ class Model
      *
      * @author Ahmad Rezk <rezk84@gmail.com>
      */
-
     public function getCorrectionCoefficient()
     {
         return $this->correctionCoefficient;
@@ -273,7 +272,6 @@ class Model
      *
      * @author Ahmad Rezk <rezk84@gmail.com>
      */
-
     public function setCorrectionCoefficient($correctionCoefficient)
     {
         $this->correctionCoefficient = $correctionCoefficient;
