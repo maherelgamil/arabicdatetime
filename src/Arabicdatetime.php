@@ -72,7 +72,7 @@ class Arabicdatetime
     {
         $months = [];
         foreach ($this->model->getMonthsList() as $month) {
-            $months[] = trans('arabicdatetime::months.'.strtolower($month), [], null, 'ar');
+            $months[] = trans('arabicdatetime::months.'.strtolower($month), [], 'ar');
         }
 
         return $months;
@@ -104,7 +104,7 @@ class Arabicdatetime
     {
         $days = [];
         foreach ($this->model->getDaysList() as $day) {
-            $days[] = trans('arabicdatetime::days.'.strtolower($day), [], null, 'ar');
+            $days[] = trans('arabicdatetime::days.'.strtolower($day), [], 'ar');
         }
 
         return $days;
@@ -136,7 +136,7 @@ class Arabicdatetime
     {
         $months = [];
         foreach ($this->model->getHijriMonths() as $month) {
-            $months[] = trans('arabicdatetime::hijri_months.'.strtolower($month), [], null, 'ar');
+            $months[] = trans('arabicdatetime::hijri_months.'.strtolower($month), [], 'ar');
         }
 
         return $months;
