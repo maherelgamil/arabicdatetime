@@ -324,7 +324,7 @@ class Arabicdatetime
             $day = date('j', strtotime($correction.' day', $unixtime));
         }
 
-        $hiriDateArray = $this->model->hjConvert(date('Y', $unixtime), date('m', $unixtime), date('j', $unixtime));
+        $hiriDateArray = $this->model->hjConvert(date('Y', $unixtime), date('m', $unixtime), $day);
 
         //get day
         $currentDateArray['d'] = $hiriDateArray['day'];
