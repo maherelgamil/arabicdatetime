@@ -77,6 +77,10 @@ Now . publish vendor
     
     //for Hijri date with indian numbers
     Arabicdatetime::date(1418123530 , 1 , 'd / m / y '  ,'indian');
+
+    //for Hijri date, there is an optional correction, You can add or subtract days with plus and minus
+    Arabicdatetime::setCorrection('+1');
+    Arabicdatetime::setCorrection('-1');
     
 ```
 
