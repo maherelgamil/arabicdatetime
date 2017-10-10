@@ -320,7 +320,7 @@ class Arabicdatetime
         $day = date('j', $unixtime);
 
         $correction = $this->getCorrection();
-        if($correction !== 0) {
+        if ($correction !== 0) {
             $day = date('j', strtotime($correction.' day', $unixtime));
         }
 
