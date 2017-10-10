@@ -72,14 +72,11 @@ Now . publish vendor
 
 
     
-    //for arabic date
+    //for Gregorian date with Englsih numbers
     Arabicdatetime::date(1418123530 , 0);
     
-    //for arabic date with indian numbers
+    //for Hijri date with indian numbers
     Arabicdatetime::date(1418123530 , 1 , 'd / m / y '  ,'indian');
-    
-    //for hijri date in arabic with indian numbers
-    Arabicdatetime::date(1418123530 , 2 , 'd / m / y '  , 'indian');
     
 ```
 
