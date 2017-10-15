@@ -48,6 +48,8 @@ class Model
 
     private $formates = ['d', 'D', 'j', 'l', 'L', 'N', 'S', 'w', 'z', 'W', 'F', 'M', 'm', 'n', 't', 'L', 'o', 'Y', 'y', 'a', 'A', 'B', 'g', 'G', 'h', 'H', 'i', 's', 'u', 'e', 'O', 'P', 'T', 'Z', 'c', 'r', 'U'];
 
+    private $correctionCoefficient = 0;
+
     /**
      * Populating model variables from configuation file.
      */
@@ -249,5 +251,29 @@ class Model
             - (int) (($month - 1) / 2) + $day + 1948440 - 385;
 
         return $jd;
+    }
+
+    /**
+     * Get Correction Coefficient.
+     *
+     * @return string Correction Coefficient
+     *
+     * @author Ahmad Rezk <rezk84@gmail.com>
+     */
+    public function getCorrectionCoefficient()
+    {
+        return $this->correctionCoefficient;
+    }
+
+    /**
+     * Set Correction Coefficient.
+     *
+     * @param string $correctionCoefficient integer with plus or minus(ex: +1, +2, -1)
+     *
+     * @author Ahmad Rezk <rezk84@gmail.com>
+     */
+    public function setCorrectionCoefficient($correctionCoefficient)
+    {
+        $this->correctionCoefficient = $correctionCoefficient;
     }
 }
