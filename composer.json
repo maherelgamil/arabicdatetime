@@ -33,5 +33,15 @@
             "Maherelgamil\\Arabicdatetime\\": "src/"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Maherelgamil\\Arabicdatetime\\ArabicdatetimeServiceProvider"
+            ],
+            "aliases": {
+                "Arabicdatetime": "Maherelgamil\\Arabicdatetime\\Facades\\Arabicdatetime"
+            }
+        }
+    },
     "minimum-stability": "stable"
 }
