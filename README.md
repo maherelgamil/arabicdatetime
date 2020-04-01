@@ -152,4 +152,4 @@ Now . publish vendor
 
 ## License
 
-ArabicDateTime is an open-sourced laravel package licensed under the MIT license
+ArabicDateTime is an open-sourced laravel package licensed under the [MIT](LICENSE) license
