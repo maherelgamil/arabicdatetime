@@ -51,13 +51,6 @@ class Model
     private $correctionCoefficient = 0;
 
     /**
-     * Populating model variables from configuation file.
-     */
-    public function __construct()
-    {
-    }
-
-    /**
      * @author Maher El Gamil <maherbusnes@gmail.com>
      *
      * @return array
