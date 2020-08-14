@@ -56,7 +56,7 @@ Now . publish vendor
 
 ```php
 
-    //Arabicdatetime::date({unixtime} , {mode} , {schema} , {numericMode});
+    //$arabDateTime->date({unixtime} , {mode} , {schema} , {numericMode});
 
     //This function take 4 Parameters :
 
@@ -70,18 +70,19 @@ Now . publish vendor
 
     //4- numericMode takes two types 'indian'  or 'arabic' and 'arabic' is default
 
+    //5 - Create a Arabicdatetime instance
+    $arabDateTime = new Arabicdatetime();
 
-    
     //for Gregorian date with Englsih numbers
-    Arabicdatetime::date(1418123530 , 0);
-    
+    $arabDateTime->date(1418123530 , 0);
+
     //for Hijri date with indian numbers
-    Arabicdatetime::date(1418123530 , 1 , 'd / m / y '  ,'indian');
+    $arabDateTime->date(1418123530 , 1 , 'd / m / y '  ,'indian');
 
     //for Hijri date, there is an optional correction, You can add or subtract days with plus and minus
-    Arabicdatetime::setCorrection('+1');
-    Arabicdatetime::setCorrection('-1');
-    
+    $arabDateTime->setCorrection('+1');
+    $arabDateTime->setCorrection('-1');
+
 ```
 
 
@@ -89,35 +90,35 @@ Now . publish vendor
 ### Get Days with locale language
 
 ```PHP
-    Arabicdatetime::getDays();
+    $arabDateTime->getDays();
 ```
 
 
 ### Get Arabic Days
 
 ```PHP
-    Arabicdatetime::getArabicDays();
+    $arabDateTime->getArabicDays();
 ```
 
 
 ### Get Months With locale language
 
 ```PHP
-    Arabicdatetime::getMonths();
+    $arabDateTime->getMonths();
 ```
 
 
 ### Get Arabic Months
 
 ```PHP
-    Arabicdatetime::getArabicMonths();
+    $arabDateTime->getArabicMonths();
 ```
 
 
 ### Get Hijri Months with locale language
 
 ```PHP
-    Arabicdatetime::getHijriMonths();
+    $arabDateTime->getHijriMonths();
 ```
 
 
@@ -125,7 +126,7 @@ Now . publish vendor
 ### Get Hijri Months
 
 ```PHP
-    Arabicdatetime::getArabicHijriMonths();
+    $arabDateTime->getArabicHijriMonths();
 ```
 
 
@@ -133,20 +134,20 @@ Now . publish vendor
 ### Get remainnig time
 
 ```php
-    Arabicdatetime::remainingTime(1418123530);
+    $arabDateTime->remainingTime(1418123530);
 ```
 
 
 ### Get left  time
 
 ```php
-    Arabicdatetime::leftTime(1418123530);
+    $arabDateTime->leftTime(1418123530);
 ```
 
 ### Get left or remaining  time
 
 ```php
-    Arabicdatetime::leftRemainingTime(1418123530);
+    $arabDateTime->leftRemainingTime(1418123530);
 ```
 
 
