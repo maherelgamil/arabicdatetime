@@ -15,16 +15,13 @@ Easy and useful tool to generate arabic or hijri date with multi-language suppor
 
 Add Laravel ArabicDateTime to your `composer.json` file.
 
-    "maherelgamil/arabicdatetime": "4.0.*"
+```bash
+    composer require maherelgamil/arabicdatetime
+```
 
 Run `composer install` to get the latest version of the package.
 
-
-### Manually
-
-It's recommended that you use Composer, however you can download and install from this repository.
-
-### Laravel 5.*
+### Laravel 5.* only
 
 ArabicDateTime comes with a service provider for Laravel 4. You'll need to add it to your `composer.json` as mentioned in the above steps, then register the service provider with your application.
 
