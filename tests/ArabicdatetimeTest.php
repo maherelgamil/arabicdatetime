@@ -8,7 +8,7 @@ class ArabicdatetimeTest extends TestCase
 {
     protected $arabDateTime;
 
-    protected function setUp()
+    public function setUp()
     {
         parent::setUp();
 
@@ -42,6 +42,10 @@ class ArabicdatetimeTest extends TestCase
 
     public function testGetArabicDays()
     {
+        if (version_compare(PHP_VERSION, '5.6', '<')) {
+            $this->markTestSkipped('Trans will not be worked on PHP 5.4!');
+        }
+
         $expected = [
             'السبت',
             'الأحد',
@@ -76,6 +80,10 @@ class ArabicdatetimeTest extends TestCase
 
     public function testGetArabicMonths()
     {
+        if (version_compare(PHP_VERSION, '5.6', '<')) {
+            $this->markTestSkipped('Trans will not be worked on PHP 5.4!');
+        }
+
         $expected = [
             'يناير',
             'فبراير',
@@ -115,6 +123,10 @@ class ArabicdatetimeTest extends TestCase
 
     public function testGetArabicHijriMonths()
     {
+        if (version_compare(PHP_VERSION, '5.6', '<')) {
+            $this->markTestSkipped('Trans will not be worked on PHP 5.4!');
+        }
+
         $expected = [
             'محرم',
             'صفر',
